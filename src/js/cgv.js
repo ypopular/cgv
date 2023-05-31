@@ -127,4 +127,45 @@ $(".sp_hover").mouseover(function(){
 				$('#main_nav2').hide();
 			}
 		});     
+
+    //  -------------------------------------------
+      
+    var carWidth2 = $(".detail_img_wrap").width();  // 보여질 박스의 너비
+    var carLength2 = $(".slide_img").length;    // 아이템의 개수
+    $(".detail_img_inner").css({
+        width : carWidth2 * carLength2,
+        marginLeft : - carWidth2
+    });
+    function prevReady2() {
+        $(".slide_img").last().prependTo(".detail_img_inner");
+    }
+    prevReady2();
+    function prevAni2() {
+        $(".detail_btn").hide();
+        $(".detail_img_inner").animate({
+            marginLeft : parseInt( $(".detail_img_inner").css("margin-left") ) + carWidth2
+        }, function(){
+            updateSetting2();
+            prevReady2();
+        });
+    }
+    function nextAni2() {
+        $(".detail_btn").hide();
+        $(".detail_img_inner").animate({
+            marginLeft : parseInt( $(".detail_img_inner").css("margin-left") ) - carWidth2
+        }, function(){
+
+            updateSetting2();
+            $(".slide_img").first().appendTo(".detail_img_inner");
+        });
+    }
+    function updateSetting2() {
+        $(".detail_btn").show();
+        $(".detail_img_inner").css("margin-left", "-1000px");
+    }
+
+    $(".detail_prev").click(prevAni2);
+    $(".detail_next").click(nextAni2);
+
+
 });
