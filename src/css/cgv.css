@@ -184,7 +184,7 @@ li{
     background-color: #fff;
 }
 
-/* --------------------------------- */
+/* --------------------------------------------------------------------------------secret_nav */
 
 
 #main_nav2{
@@ -280,7 +280,7 @@ li{
 
 
 
-
+/* ----------------------------------------------------------------------------cgv_main */
 
 
 
@@ -370,22 +370,7 @@ video{
     font-weight: 700;
     letter-spacing: -3px;
 }
-#line0{
-    width: 1px;
-    height: 20px;
-    position: absolute;
-    border-right: 1px solid #ccc;
-    top : 15%;
-    left: 14%;
-}
-#show_soon{
-    position: absolute;
-    left: 16%;
-    top: 13%;
-    letter-spacing: -3px;
-    font-weight: 700;
-    font-size: 25px;
-}
+
 .wrap{
     width: 1000px;
     height: 325px;
@@ -420,6 +405,15 @@ video{
     height: 234px;
     object-fit: cover;
     border-radius: 10px;
+    cursor: pointer;
+}
+#secret_movie_detail{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
 }
 .btn{
     position: absolute;
@@ -479,9 +473,53 @@ video{
     font-size: 14px;
 }
 
-
-
-
+.city_crime{
+    position: relative;
+}
+#secret_movie_detail{
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    top: 24%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background-color: #fff;
+    border-radius: 5px;
+    display: none;
+}
+#secret_movie_detail a{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    color: #979393;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    display: block;
+}
+#secret_movie_ticketing{
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background-color: rgb(287, 84, 91);
+    border-radius: 5px;
+    display: none;
+}
+#secret_movie_ticketing a{
+    width: 100px;
+    height: 30px;
+    display: block;
+    line-height: 30px;
+    color: #eceaea;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+}
 
 
 
@@ -1022,6 +1060,11 @@ video{
     background: url(../img/sprite_btn.png) 0 0 no-repeat;
     margin-top: 15px;
 }
+#ticketing_go a{
+    width: 91px;
+    height: 35px;
+    display: block;
+}
 #detail_content{
     width: 1000px;
     height: 300px;
@@ -1482,6 +1525,7 @@ video{
 #ticketing{
     width: 1000px;
     height: 660px;
+    margin-top: 50px;
 }
 
 #movie_select{
@@ -1517,13 +1561,35 @@ video{
     text-align: center;
     position: absolute;
     left: 67px;
-    bottom: 0px;
+    bottom: -2px;
     border-left: 2px solid #333;
     border-right: 2px solid #ccc;
     border-top: 2px solid #ccc;
     border-bottom: 2px solid #333;
     font-size: 14px;
     line-height: 26px;
+    position: relative;
+    cursor: pointer;
+}
+.special_theater_active{
+    background-color: #000;
+    color: #fff;
+}
+#select_special_theater_menu{
+    width: 66px;
+    height: 140px;
+    background-color: #000;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: -140px;
+    display: none;
+}
+#select_special_theater_menu a{
+  width: 66px;
+  height: 26px;
+  display: block;
+    color: #fff;
 }
 #order_kategorie{
     width: 270px;
@@ -1538,12 +1604,14 @@ video{
     border-bottom: 2px solid #333;
     float: left;
     font-size: 13px;
+    cursor: pointer;
 }
 #alphabetical_order{
     width: 70px;
     height: 30px;
     float: left;
     font-size: 13px;
+    cursor: pointer;
 }
 #movie_list{
     width: 270px;
@@ -1559,6 +1627,13 @@ video{
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    cursor: pointer;
+}
+#movie_list ul li a{
+    width: 250px;
+    height: 40px;
+    display: block;
+    color: #000;
 }
 #movie_list ul li span{
     color: #000;
@@ -1567,6 +1642,40 @@ video{
     font-weight: 700;
     font-size: 13px;
 }
+.p_none{
+    display: none;
+}
+.movie_list_active{
+    background-color: #ccc;
+    border-radius: 5px;
+    color: #fff;
+}
+.movie_list_span_active{
+    color: #fff !important;
+}
+#movie_list2{
+    width: 270px;
+    height: 500px;
+    display: none;
+    margin: auto;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+#movie_list2 ul li{
+    width: 250px;
+    height: 40px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+#movie_list2 ul li span{
+    color: #000;
+    margin-left: 10px;
+    line-height: 40px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
 .age_15{
     width: 20px;
     height: 20px;
@@ -1598,6 +1707,14 @@ video{
     float: left;
     border-left: 2px solid #ccc;
 }
+.boundary3{
+    width: 260px;
+    height: 1px;
+    border-top: 2px solid #ccc;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
 #region{
     width: 130px;
     height: 30px;
@@ -1625,7 +1742,19 @@ video{
     font-size: 14px;
     padding-left: 15px;
     border: 1px solid #ccc;
-    
+}
+#region_detail ul li a{
+    color: #000;
+    width: 130px;
+    height: 30px;
+    display: block;
+}
+.region_active{
+    background-color: #ccc;
+    border-radius: 5px;
+}
+.region_a_active{
+    color: #fff !important;
 }
 #day_select{
     width: 103px;
@@ -1663,13 +1792,23 @@ video{
     font-size: 14px;
     color: #666;
     padding-left: 10px;
+    width: 70px;
+    height: 30px;
+    display: block;
 }
 #date ul li span{
     padding-left: 20px;
     font-weight: 700;
 }
-.red_day{
-    color: red !important;
+.date_active{
+    background-color: #ccc;
+    border-radius: 5px;
+}
+.date_a_active{
+    color: #fff !important;
+}
+#date .red_day{
+    color: #ad2727 ;
 }
 #time_select{
     width: 290px;
@@ -1677,6 +1816,92 @@ video{
     float: left;
     border-left: 2px solid #ccc;
     border-right: 2px solid #ccc;
+}
+#day_night{
+    width: 260px;
+    height: 40px;
+    border-bottom: 2px solid #ccc;
+    margin: auto;
+}
+#day_night span:first-child{
+    float: left;
+    height: 14px;
+    padding-left: 18px;
+    background: url(../img/icon_morning_night.png) no-repeat left;
+    background-position: 0 0;
+    font-size: 12px;
+    margin-top: 15px;
+    line-height: 15px;
+}
+#day_night span:last-child{
+    float: left;
+    height: 14px;
+    padding-left: 18px;
+    background: url(../img/icon_morning_night.png) no-repeat left;
+    background-position: 0 -20px;
+    font-size: 12px;
+    margin-top: 15px;
+    margin-left: 10px;
+    line-height: 15px;
+}
+#time_theater{
+    width: 260px;
+    height: 101px;
+    margin: auto;
+}
+.time_title{
+    font-size: 12px;
+    float: left;
+    margin-top: 10px;
+    font-weight: 700;
+}
+.time_name{
+    color: #b54d15;
+}
+#choice_time{
+    width: 260px;
+    height: 70px;
+    float: left;
+}
+#choice_time ul{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#choice_time ul li{
+    width: 80px;
+    height: 33px;
+    float: left;
+    font-size: 12px;
+    position: relative;
+    margin-top: 5px;
+    text-align: center; 
+}
+#choice_time ul li span{
+    position: absolute;
+    left: 55%;
+    bottom: 30%;
+    color: #3d7c35;
+    font-size: 11px;
+}
+.choice_active{
+    background-color: #ccc;
+    border-radius: 5px;
+}
+.choice_span_active{
+    color: #fff !important;
+}
+.choice_box_active{
+    color :#fff !important;
+}
+.time_box{
+    border: 1px solid #ccc;
+    font-size: 12px;
+    width: 40px;
+    height: 30px;
+    font-weight: 700;
+    color: #000;
+    padding-top: 5px;
 }
 .ticketing_select_title{
     width: 100%;
@@ -1688,6 +1913,8 @@ video{
     color: #ccc;
     background-color: #333
 }
+
+
 #select_total_wrap{
     width: 100%;
     height: 140px;
@@ -1696,4 +1923,568 @@ video{
 #select_total{
     width: 1000px;
     height: 140px;
+    margin: auto;
 }
+#pick_movie{
+    width: 230px;
+    height: 78px;
+    float: left;
+    background: url(../img/tnb_steps.png) no-repeat 50% 40px;
+    margin-top: 15px;
+    color: #fff;
+}
+#pick_movie p{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    margin-top: 35px;
+    float: left;
+    margin: auto;
+}
+#pick_movie span{
+    width: 230px;
+    height: 30px;
+    display: block;
+    text-align: center;
+}
+#pick_movie p:first-child{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.boundary2{
+    width: 1px;
+    height: 78px;
+    border-left: 2px solid #686666;
+    float: left;
+    margin-top: 30px;
+}
+#pick_theater{
+    width: 204px;
+    height: 78px;
+    float: left;
+    background: url(../img/tnb_steps.png) no-repeat 50% -68px;
+    margin-top: 30px;
+}
+#pick_theater p{
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    color: #fff;
+    margin-left: 50px;
+    margin-bottom: 0px;
+}
+#pick_theater span{
+    color: #fff;
+    width: 204px;
+    height: 30px;
+    display: block;
+    text-align: center;
+}
+#pick_theater h4{
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+}
+#go_seat1{
+    width: 111px;
+    height: 78px;
+    float: left;
+    background: url(../img/tnb_steps.png) no-repeat 50% -190px;
+    margin-top: 30px;
+    margin-left: 35px;
+}
+#go_seat1 p{
+    color: #fff;
+}
+#go_seat2{
+    width: 71px;
+    height: 78px;
+    float: left;
+    background: url(../img/tnb_steps.png) no-repeat 50% -298px;
+    margin-top: 30px;
+    margin-left: 35px;
+}
+#go_seat_choice{
+    width: 114px;
+    height: 114px;
+    float: right;
+    background: url(../img/tnb_buttons.png) no-repeat 0 -216px;
+    margin-top: 10px;
+    
+}
+.go_seat_choice_active{
+    background: url(../img/tnb_buttons.png) no-repeat -150px -216px !important;
+    cursor: pointer;
+}
+#go_seat_choice2{
+    width: 114px;
+    height: 114px;
+    float: right;
+    background: url(../img/tnb_buttons.png) no-repeat 0 -326px;
+    margin-top: 10px;
+    cursor: pointer;
+    display: none;
+}
+
+#go_payment{
+    width: 220px;
+    height: 110px;
+    float: right;
+    background: url(../img/tnb_buttons.png) no-repeat 0 -546px;
+    display: none;
+    margin-top: 10px;
+}
+
+/* --------------------------------------------------------------------------select_seat */
+
+#select_seat{
+    width: 1000px;
+    height: 662px;
+    border: 2px solid #ccc;
+    display: none;
+}
+#select_seat_title{
+    width: 996px;
+    height: 30px;
+    background-color: #0f0f0f;
+}
+#select_seat_title p{
+    text-align: center;
+    color: #c5c2c2;
+    line-height: 30px;
+    font-size: 15px;
+}
+#select_seat_top{
+    width: 996px;
+    height: 150px;
+    border-bottom: 2px solid #ccc;
+}
+#personnel{
+    width: 498px;
+    height: 148px;
+    border-right: 2px solid #ccc;
+    float: left;
+}
+
+.personnel_a_active{
+    background-color: #ccc;
+    color: #fff !important;
+}
+#personnel ul{
+    width: 400px;
+    height: 50px;
+   float: left;
+    margin-top: 45px;
+    margin-left: 20px;
+}
+#personnel ul li{
+    width: 22px;
+    height: 22px;
+    float: left;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 22px;
+    margin-left: 20px;
+}
+#personnel ul li a{
+    font-weight: 700;
+    color: #000;
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+#personnel ul li:first-child{
+    width: 40px;
+    height: 30px;
+    border: none;
+}
+#choice_detail{
+    width: 498px;
+    height: 148px;
+    float: left;
+    position: relative;
+}
+#choice_detail p{
+    color: #5a5a5a;
+    font-size: 24px;
+    position: absolute;
+    left: 5%;
+    top: 5%;
+}
+#choice_detail span{
+    color: #5a5a5a;
+    font-size: 24px;
+    position: absolute;
+    left: 5%;
+    top: 33%;
+}
+#choice_detail h4{
+    color: #5a5a5a;
+    font-size: 24px;
+    position: absolute;
+    left: 5%;
+    top: 66%;
+}
+#seat_choice{
+    width: 996px;
+    height: 480px;
+    float: left;
+}
+#screen_location{
+    width: 600px;
+    height: 30px;
+    background-color: #ccc;
+    margin: auto;
+    margin-top: 30px;
+}
+#screen_location p{
+    width: 100%;
+    height: 30px;
+    line-height: 25px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+    color: #666;
+}
+.seat_active{
+    background-color: red;
+}
+.seat_active2{
+    background-color: red;
+}
+#seat_choice_detail{
+    width: 500px;
+    height: 350px;
+    margin: auto;
+    margin-top: 60px;
+}
+#seat_choice_detail ul{
+    width: 480px;
+    height: 25px;
+}
+#seat_choice_detail ul li{
+    width: 25px;
+    height: 23px;
+    background-color: #ccc;
+    float: left;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 3px;
+    margin-left: 1px;
+    cursor: pointer;
+}
+#seat_choice_detail ul li:nth-child(3){
+    margin-right: 60px;
+}
+#seat_choice_detail ul li:nth-child(11){
+    margin-right: 60px;
+}
+#seat_choice_detail ul li a{
+    color: #fff;
+    width: 25px;
+    height: 23px;
+    display: block;
+    border-radius: 3px;
+}
+#seat_choice_detail .seat_line li:first-child{
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    color: #ccc;
+    font-weight: 700;
+    border-radius: 0px;
+}
+
+
+#ready_payment{
+    width: 1000px;
+    margin: auto;
+    height: 600px;
+    display: none;
+}
+#payment_amount{
+    width: 900px;
+    height: 100px;
+    float: left;
+    margin-left: 50px;
+    margin-top: 50px;
+    border-radius: 5px;
+    border: 2px solid #474747;
+}
+#payment_amount_title{
+    width: 896px;
+    height: 50px;
+}
+#payment_amount_title span{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 50px;
+    margin-left: 30px;
+}
+#payment_amount_detail{
+    width: 896px;
+    height: 50px;
+    background-color: #474747;
+    border-radius: 0 0 5px 5px;
+}
+#payment_amount_detail span{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 50px;
+    margin-left: 30px;
+    color: #fff;
+}
+#payment_method{
+    width: 900px;
+    height: 400px;
+    float: left;
+    margin-left: 50px;
+    margin-top: 30px;
+    border-radius: 5px;
+    border: 2px solid #474747;
+}
+#payment_method_title{
+    width: 896px;
+    height: 50px;
+}
+#payment_method_title span{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 50px;
+    margin-left: 30px;
+}
+#payment_method_detail{
+    width: 896px;
+    height: 350px;
+    background-color: #474747;
+    border-radius: 0 0 5px 5px;
+}
+#payment_method_detail_title{
+    width: 836px;
+    height: 50px;
+    margin-left: 30px;
+    border-bottom: 2px solid #ccc;
+}
+#payment_method_detail label{
+    color: #fff;
+    font-weight: 700;
+    line-height: 50px;
+    margin-left: 3px;
+}
+.input_margin{
+    margin-left: 15px;
+}
+/* -----------------------------------------------------------------------------cgv_sign_up */
+#sign_up_wrap{
+    width: 100%;
+    height: 660px;
+}
+#sign_up_wrap_small{
+    width: 1000px;
+    height: 660px;
+    margin: auto;
+}
+#sign_up{
+    width: 594px;
+    height: 600px;
+    border-top: 2px solid#898987;
+    border-bottom: 2px solid#898987;
+    margin: auto;
+    margin-top: 70px;
+    position: relative;
+}
+#sign_title{
+    width: 110px;
+    height: 41px;
+    background: #fb4357;
+    position: absolute;
+    left: 0;
+    top: -41px;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    line-height: 41px;
+    color: #fff;
+    font-size: 14px;
+}
+#user_name_title{
+    width: 80px;
+    height: 42px;
+    background-color:#8d8989;
+    color: #fff;
+    text-align: center;
+    line-height: 42px;
+    position: absolute;
+    left:10%;
+    top: 5%;
+    border-radius: 5px;
+     font-size: 13px;
+}
+#user_name_sign{
+    width: 290px;
+    height: 42px;
+    border: 2px solid #898987;
+    font-size: 13px;
+    position: absolute;
+    left: 25%;
+    top: 5%;
+     
+}
+#user_id_title{
+    width: 80px;
+    height: 42px;
+    background-color:#8d8989;
+    color: #fff;
+    text-align: center;
+    line-height: 42px;
+    position: absolute;
+    left: 10%;
+    top: 15%;
+    border-radius: 5px;
+     font-size: 13px;
+}
+#user_id_sign{
+    width: 290px;
+    height: 42px;
+    border: 2px solid #898987;
+    font-size: 13px;
+    position: absolute;
+    left: 25%;
+    top: 15%;
+}
+#user_password_title{
+    width: 80px;
+    height: 42px;
+    background-color:#8d8989;
+    color: #fff;
+    text-align: center;
+    line-height: 42px;
+    position: absolute;
+    left: 10%;
+    top: 25%;
+    border-radius: 5px;
+     font-size: 13px;
+}
+#user_password_sign{
+    width: 290px;
+    height: 42px;
+    border: 2px solid #898987;
+    font-size: 13px;
+    position: absolute;
+    left: 25%;
+    top: 25%;
+}
+#user_password_title_re{
+    width: 80px;
+    height: 42px;
+    background-color:#8d8989;
+    color: #fff;
+    text-align: center;
+    line-height: 42px;
+    position: absolute;
+    left: 10%;
+    top: 35%;
+    border-radius: 5px;
+    font-size: 12px;
+}
+#user_password_sign_re{
+    width: 290px;
+    height: 42px;
+    border: 2px solid #898987;
+    font-size: 13px;
+    position: absolute;
+    left: 25%;
+    top: 35%;
+}
+#user_gender_title{
+    width: 80px;
+    height: 42px;
+    background-color:#8d8989;
+    color: #fff;
+    text-align: center;
+    line-height: 42px;
+    position: absolute;
+    left: 10%;
+    top: 45%;
+    border-radius: 5px;
+    font-size: 12px;
+}
+#user_gender{
+    width: 290px;
+    height: 42px;
+    border: 2px solid #898987;
+    font-size: 13px;
+    position: absolute;
+    left: 25%;
+    top: 45%;
+}
+#user_tel_title{
+    width: 80px;
+    height: 42px;
+    background-color:#8d8989;
+    color: #fff;
+    text-align: center;
+    line-height: 42px;
+    position: absolute;
+    left: 10%;
+    top: 55%;
+    border-radius: 5px;
+    font-size: 12px;
+}
+#user_tel{
+    width: 290px;
+    height: 42px;
+    border: 2px solid #898987;
+    font-size: 13px;
+    position: absolute;
+    left: 25%;
+    top: 55%;
+}
+#user_tel_type_title{
+    width: 80px;
+    height: 42px;
+    background-color:#8d8989;
+    color: #fff;
+    text-align: center;
+    line-height: 42px;
+    position: absolute;
+    left: 10%;
+    top: 65%;
+    border-radius: 5px;
+    font-size: 12px;
+}
+#user_tel_type{
+    width: 290px;
+    height: 42px;
+    border: 2px solid #898987;
+    font-size: 13px;
+    position: absolute;
+    left: 25%;
+    top: 65%;
+}
+
+
+
+
+
+
+#sign_submit{
+        width: 290px;
+        height: 42px;
+        font-size: 13px;
+        background-color: #fb4357;
+         position: absolute;
+    left: 25%;
+    bottom: 10%;
+}
+#sign_submit span{
+    width: 286px;
+    height: 38px;
+    display: block;
+    border: 1px solid #fff;
+    text-align: center;
+    margin: auto;
+    color: #fff;
+    font-size: 15px;
+    line-height: 38px;
+    font-weight: 700;
+}
+
