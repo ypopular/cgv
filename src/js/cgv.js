@@ -421,7 +421,65 @@ $(".sp_hover").mouseover(function(){
             }
         });
        
-      
+    //   -------------------------------------------------------------------
+    $(".master_alter_button").on("click",function(){
+        alert("변경되었습니다.");
+    });
+
+
+    $("#cinema_add").on("click",function(){
+        $("#master_menu_wrap").hide();
+        $("#cinema_add_wrap").show();
+    });
+    $("#cinema_add_main_go").on("click",function(){
+        $("#cinema_add_wrap").hide();
+        $("#master_menu_wrap").show();
+    });
+
+    $("#cinema_alter").on("click",function(){
+        $("#master_menu_wrap").hide();
+        $("#cinema_alter_wrap").show();
+    });
+    $("#cinema_alter_main_go").on("click",function(){
+        $("#cinema_alter_wrap").hide();
+        $("#master_menu_wrap").show();
+    });
+
+    $("#movie_add").on("click",function(){
+        $("#master_menu_wrap").hide();
+        $("#movie_add_wrap").show();
+    });
+    $("#movie_add_main_go").on("click",function(){
+        $("#movie_add_wrap").hide();
+        $("#master_menu_wrap").show();
+    });
+
+    $("#movie_alter").on("click",function(){
+        $("#master_menu_wrap").hide();
+        $("#movie_alter_wrap").show();
+    });
+    $("#movie_alter_main_go").on("click",function(){
+        $("#movie_alter_wrap").hide();
+        $("#master_menu_wrap").show();
+    });
+
+    $("#theater_add").on("click",function(){
+        $("#master_menu_wrap").hide();
+        $("#theater_add_wrap").show();
+    });
+    $("#theater_add_main_go").on("click",function(){
+        $("#theater_add_wrap").hide();
+        $("#master_menu_wrap").show();
+    });
+
+    $("#theater_alter").on("click",function(){
+        $("#master_menu_wrap").hide();
+        $("#theater_alter_wrap").show();
+    });
+    $("#theater_alter_main_go").on("click",function(){
+        $("#theater_alter_wrap").hide();
+        $("#master_menu_wrap").show();
+    });
         
 
 });
