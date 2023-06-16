@@ -10,7 +10,7 @@ $(function(){
     }
     prevReady();
     function prevAni() {
-        $(".btn").hide();
+       
         $(".inner").animate({
          marginLeft : parseInt( $(".inner").css("margin-left") ) + carWidth
         }, function(){
@@ -19,7 +19,7 @@ $(function(){
         });
     }
     function nextAni() {
-        $(".btn").hide();
+       
         $(".inner").animate({
             marginLeft : parseInt( $(".inner").css("margin-left") ) - carWidth
         }, function(){
@@ -28,22 +28,25 @@ $(function(){
         });
     }
     function updateSetting() {
-        $(".btn").show();
         $(".inner").css("margin-left", "-1000px");
     }
     $(".prev").click(prevAni);
     $(".next").click(nextAni);
+   
+    
 
-    $(".city_crime").hover(
+    $(".chart_img_wrap").hover(
         function(){
-            $("#secret_movie_detail").show();
-            $("#secret_movie_ticketing").show();
+          $(this).children('.secret_movie_detail').show();
+          $(this).children('.secret_movie_ticketing').show();
             $(this).find("img:eq(0)").css("filter", "brightness(0.5)")
+            $(this).children('span').hide();
         },
         function(){
-            $("#secret_movie_detail").hide();
-            $("#secret_movie_ticketing").hide();
+            $(this).children('.secret_movie_detail').hide();
+            $(this).children('.secret_movie_ticketing').hide();
             $(this).find("img:eq(0)").css("filter", "brightness(1)")
+            $(this).children('span').show();
         }
     );
    
@@ -161,6 +164,8 @@ $(".sp_hover").mouseover(function(){
 
 
     // -----------------------------------------------------
+   
+    
     $("#alphabetical_order").on("click",function(){
         $("#movie_list").hide();
         $("#movie_list2").show();
@@ -173,10 +178,10 @@ $(".sp_hover").mouseover(function(){
         $("#alphabetical_order").css("border-bottom","none")
         $("#ticketing_order").css("border-bottom","2px solid #333");
     });
-        $("#movie_list a").on("click",function(){
+        $("#movie_list a, #movie_list2 a").on("click",function(){
             var movieTitle = $(this).attr("title");
             var pTag =$("<p>").text(movieTitle);
-           
+            $("#pick_movie").find("span:eq(0)").remove();
             $("#pick_movie").find("p:eq(0)").remove();
             $("#pick_movie").append(pTag);
             $("#pick_movie").css("background","none");
@@ -189,9 +194,15 @@ $(".sp_hover").mouseover(function(){
             $(this).siblings().removeClass("movie_list_active");
             $(this).siblings().find("span").removeClass("movie_list_span_active");
         });
+        $("#movie_list2 li").on("click",function(){
+            $(this).addClass("movie_list_active");
+            $(this).find("span").addClass("movie_list_span_active");
+            $(this).siblings().removeClass("movie_list_active");
+            $(this).siblings().find("span").removeClass("movie_list_span_active");
+        });
        
 
-        $("#select_special_theater, #movie_list a").on("click",function(){
+        $("#select_special_theater, #movie_list a, #movie_list2 a").on("click",function(){
             $("#select_special_theater").toggleClass('special_theater_active');
             $('#select_special_theater_menu').toggle();
         });
@@ -288,9 +299,13 @@ $(".sp_hover").mouseover(function(){
         });
         // ----------------------------------------------------------
         var personnel01Click = function() {
+            $("#go_seat1").css("background","none");
+            $("#go_seat2").css("background","none");
             $(".seat_line li a").removeClass("seat_active2")
             $(this).parent().siblings().find("a").removeClass("personnel_a_active");
             $(this).addClass("personnel_a_active");
+            $("#go_seat1").find("p").remove();
+            $("#go_seat1").html("<p>14000원</p>");
             $(".seat_line li a").off("mouseenter mouseleave click");
             $(".seat_line li a").hover(
                 function() {
@@ -300,13 +315,17 @@ $(".sp_hover").mouseover(function(){
                     $(this).removeClass("seat_active");
                 }
             );
-            $(".seat_line li a").click(
+          
+            $(".seat_line a").click(
                 function(){
+                    var seatTitle = $(this).attr("title");
+                    var pTag9 =$("<h3>").text(seatTitle);
                     $(".seat_line li a").removeClass("seat_active2");
                     $(this).addClass("seat_active2");
-                    $("#go_seat1").css("background","none");
-                    $("#go_seat2").css("background","none");
-                    $("#go_seat1").html("<p>14000원</p>");
+                  
+                    $("#go_seat1").find("h3").remove();
+                    $("#go_seat1").append(pTag9);
+
                     $("#payment_amount_detail").find("span").remove();
                     $("#payment_amount_detail").html("<span>14000원</span>");
                     $("#go_seat_choice2").css("background-position","0px -326px");
@@ -317,9 +336,13 @@ $(".sp_hover").mouseover(function(){
         };
         var personnelOn = false;
         var personnel02Click = function() {
+            $("#go_seat1").css("background","none");
+            $("#go_seat2").css("background","none");
             $(".seat_line li a").removeClass("seat_active2")
             $(this).parent().siblings().find("a").removeClass("personnel_a_active");
             $(this).addClass("personnel_a_active");
+            $("#go_seat1").find("p").remove();
+            $("#go_seat1").html("<p>28000원</p>");
             $(".seat_line li a").off("mouseenter mouseleave click");
             $(".seat_line li a").hover(
                 function() {
@@ -333,13 +356,18 @@ $(".sp_hover").mouseover(function(){
             );
             $(".seat_line li a").click(
                 function(){
+                    var seatTitle = $(this).attr("title");
+                    var seatTitle2 =$(this).parent().next().find("a").attr("title");
+                    var pTag6 = $("<h3>").text(seatTitle);
+                    var pTag10 = $("<span>").text(seatTitle2);
                     $(".seat_line li a").removeClass("seat_active2");
                     $(this).addClass("seat_active2");
                     $(this).parent().next().find("a").addClass("seat_active2");
-                    $("#go_seat1").css("background","none");
-                    $("#go_seat2").css("background","none");
-                    $("#go_seat1").find("p").remove();
-                    $("#go_seat1").html("<p>28000원</p>");
+                 
+                    $("#go_seat1").find("span").remove();
+                    $("#go_seat1").find("h3").remove();
+                    $("#go_seat1").append(pTag6,pTag10);
+                   
                     $("#payment_amount_detail").find("span").remove();
                     $("#payment_amount_detail").html("<span>28000원</span>");
                     $("#go_seat_choice2").css("background-position","0px -326px");
@@ -349,9 +377,13 @@ $(".sp_hover").mouseover(function(){
             );
         };
         var personnel03Click = function() {
+            $("#go_seat1").css("background","none");
+            $("#go_seat2").css("background","none");
             $(".seat_line li a").removeClass("seat_active2")
             $(this).parent().siblings().find("a").removeClass("personnel_a_active");
             $(this).addClass("personnel_a_active");
+            $("#go_seat1").find("p").remove();
+            $("#go_seat1").html("<p>42000원</p>");
             $(".seat_line li a").off("mouseenter mouseleave click");
             $(".seat_line li a").hover(
                 function() {
@@ -367,14 +399,21 @@ $(".sp_hover").mouseover(function(){
             );
             $(".seat_line li a").click(
                 function(){
+                    var seatTitle = $(this).attr("title");
+                    var seatTitle2 =$(this).parent().next().find("a").attr("title");
+                    var seatTitle3 =$(this).parent().prev().find("a").attr("title");
+                    var pTag8 = $("<h3>").text(seatTitle3);
+                    var pTag6 = $("<span>").text(seatTitle);
+                    var pTag7 = $("<h4>").text(seatTitle2);
+                   
                     $(".seat_line li a").removeClass("seat_active2");
                     $(this).addClass("seat_active2");
                     $(this).parent().next().find("a").addClass("seat_active2");
                     $(this).parent().prev().find("a").addClass("seat_active2");
-                    $("#go_seat1").css("background","none");
-                    $("#go_seat2").css("background","none");
-                    $("#go_seat1").find("p").remove();
-                    $("#go_seat1").html("<p>42000원</p>");
+                    $("#go_seat1").find("span").remove();
+                    $("#go_seat1").find("h4").remove();
+                    $("#go_seat1").find("h3").remove();
+                    $("#go_seat1").append(pTag6,pTag7,pTag8);
                     $("#payment_amount_detail").find("span").remove();
                     $("#payment_amount_detail").html("<span>42000원</span>");
                     $("#go_seat_choice2").css("background-position","0px -326px");
@@ -428,58 +467,163 @@ $(".sp_hover").mouseover(function(){
 
 
     $("#cinema_add").on("click",function(){
-        $("#master_menu_wrap").hide();
+        $("#chart_big_wrap").hide();
+        $("#cinema_add_wrap").siblings().hide();
+        $("#master_wrap").show();
+        $("#master_title").show();
         $("#cinema_add_wrap").show();
     });
     $("#cinema_add_main_go").on("click",function(){
         $("#cinema_add_wrap").hide();
-        $("#master_menu_wrap").show();
+        $("#master_wrap").hide();
+        $("#chart_big_wrap").show();
     });
 
     $("#cinema_alter").on("click",function(){
-        $("#master_menu_wrap").hide();
+        $("#chart_big_wrap").hide();
+        $("#cinema_alter_wrap").siblings().hide();
+        $("#master_wrap").show();
+        $("#master_title").show();
         $("#cinema_alter_wrap").show();
     });
     $("#cinema_alter_main_go").on("click",function(){
         $("#cinema_alter_wrap").hide();
-        $("#master_menu_wrap").show();
+        $("#master_wrap").hide();
+        $("#chart_big_wrap").show();
     });
 
     $("#movie_add").on("click",function(){
-        $("#master_menu_wrap").hide();
+        $("#chart_big_wrap").hide();
+        $("#movie_add_wrap").siblings().hide();
+        $("#master_wrap").show();
+        $("#master_title").show();
         $("#movie_add_wrap").show();
     });
     $("#movie_add_main_go").on("click",function(){
         $("#movie_add_wrap").hide();
-        $("#master_menu_wrap").show();
+        $("#master_wrap").hide();
+        $("#chart_big_wrap").show();
     });
 
     $("#movie_alter").on("click",function(){
-        $("#master_menu_wrap").hide();
+        $("#chart_big_wrap").hide();
+        $("#movie_alter_wrap").siblings().hide();
+        $("#master_wrap").show();
+        $("#master_title").show();
         $("#movie_alter_wrap").show();
     });
     $("#movie_alter_main_go").on("click",function(){
         $("#movie_alter_wrap").hide();
-        $("#master_menu_wrap").show();
+        $("#master_wrap").hide();
+        $("#chart_big_wrap").show();
     });
 
     $("#theater_add").on("click",function(){
-        $("#master_menu_wrap").hide();
+        $("#chart_big_wrap").hide();
+        $("#theater_add_wrap").siblings().hide();
+        $("#master_wrap").show();
+        $("#master_title").show();
         $("#theater_add_wrap").show();
     });
     $("#theater_add_main_go").on("click",function(){
         $("#theater_add_wrap").hide();
-        $("#master_menu_wrap").show();
+        $("#master_wrap").hide();
+        $("#chart_big_wrap").show();
     });
 
     $("#theater_alter").on("click",function(){
-        $("#master_menu_wrap").hide();
+        $("#chart_big_wrap").hide();
+        $("#theater_alter_wrap").siblings().hide();
+        $("#master_wrap").show();
+        $("#master_title").show();
         $("#theater_alter_wrap").show();
     });
     $("#theater_alter_main_go").on("click",function(){
         $("#theater_alter_wrap").hide();
-        $("#master_menu_wrap").show();
+        $("#master_wrap").hide();
+        $("#chart_big_wrap").show();
     });
+
+    $("#go_chart").on("click",function(){
+        $("#chart_big_wrap").show();
+        $("#chart_big_wrap").siblings().hide();
+    });
+
+    $( function() {
+        $( "#datepicker" ).datepicker();
+      } );
         
+// --------------------------------------------------------------------------------donut_chart
+google.charts.load("current", {packages:["corechart"]});
+google.charts.setOnLoadCallback(drawChart3);
+function drawChart3() {
+  var data = google.visualization.arrayToDataTable([
+    ['Task', 'Hours per Day'],
+    ['30대',     600],
+    ['10~20대',      510],
+    ['40대',  300],
+    ['50대', 200],
+    ['60대~',    100]
+  ]);
+
+  var options = {
+    title: ''
+  };
+
+  var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+  chart.draw(data, options);
+}
+
+
+// --------------column_chart---------------------------------------------
+google.charts.load('current', {'packages':['bar']});
+google.charts.setOnLoadCallback(drawChart2);
+
+function drawChart2() {
+  var data = google.visualization.arrayToDataTable([
+    ['경기',  '예매 수'],
+    ['운양지점', 400],
+    ['김포지점', 460],
+    ['김포한강지점', 1120],
+
+  ]);
+
+  var options = {
+    chart: {
+      title: '',
+      subtitle: '',
+      width: ''
+    }
+  };
+
+  var mq = window.matchMedia( "(max-width: 1024.98px)" );
+  if (mq.matches) {
+      var options = {
+        legend: {
+          position: 'none'
+        }
+      }   
+    }
+
+  var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+  chart.draw(data, google.charts.Bar.convertOptions(options));
+}
+// -------------pie_chart---------------------------------
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() 
+{
+    var data = google.visualization.arrayToDataTable(
+        [["Employee","Rating"],["액션",71],["코믹",56],["애니메이션",49],["로맨스",37],["공포",25],["기타",11]]
+    );
+    var options = {
+        title: ""
+    };
+    var chart = new google.visualization.PieChart(document.getElementById("employee_piechart"));
+    chart.draw(data, options);
+}
+
+
 
 });
